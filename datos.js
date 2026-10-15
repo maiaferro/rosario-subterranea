@@ -12,7 +12,7 @@
 const PLACES = [
   { id: "pasaje-pan-flamenco", corto: "Pan / Flamenco", nombre: "Pasaje Pan / Flamenco", direccion: "Córdoba 954",
     lat: -32.9468, lng: -60.6357, aprox: true, foto360: null, video: null,
-    texto: ["Texto por escribir."], pendiente: true },
+    texto: ["En el subsuelo del Pasaje Pan funciona El Túnel o Túnel Cultural, un espacio subterráneo de arquitectura caracterizada por una bóveda de cañón corrido."], pendiente: true },
   { id: "pasaje-pan-galeria", corto: "Pan / Galería de arte", nombre: "Pasaje Pan / Galería de arte", direccion: "Córdoba 954 - Subsuelo",
     lat: -32.9468, lng: -60.6357, aprox: true, foto360: "prueba360.jpg", video: "https://www.youtube.com/watch?v=2P1wZD5R6cA",
     texto: [
