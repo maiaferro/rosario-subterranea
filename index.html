@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rosario Subterránea</title>
+<title>Rosario Subterránea 360º</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -898,7 +898,7 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
 <body>
 <header class="top">
   <div class="titlebox">
-    <h1>Rosario Subterránea</h1>
+    <h1>Rosario Subterránea 360º</h1>
     <p class="lead">Documental transmedia interactivo que explora el entramado invisible de la ciudad.</p>
   </div>
   <p class="meta"><span id="count">10</span> lugares · Rosario</p>
@@ -939,7 +939,7 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
 
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-<script src="datos.js"></script>
+<script>document.write('<script src="datos.js?v=' + Date.now() + '"><\/script>');</script>
 <script>
 function start() {
   var $ = function (id) { return document.getElementById(id); };
