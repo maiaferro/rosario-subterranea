@@ -49,7 +49,7 @@ const PLACES = [
     ] },
   { id: "museo-estevez", corto: "Museo Estévez", nombre: "Museo de Arte Decorativo Firma y Odilo Estévez", direccion: "Santa Fe 748",
     lat: -32.9462, lng: -60.6339, aprox: true,
-    cant360: 1, fotos360: [],
+    cant360: 1, fotos360: [“Circulo 360 (1)”, ” Circulo 360 (2)”, “Circulo 360 (3)”, “Circulo 360 (4)”, “Circulo 360 (5)”, “Circulo 360 (6)”, “Circulo 360 (7)”, “Circulo 360 (8)”, “Circulo 360 (9)”, “Circulo 360 (10)”, “Circulo 360 (11)”, “Circulo 360 (12)”, “Circulo 360 (13)”, “Circulo 360 (14)”, “Circulo 360 (15)”, “Circulo 360 (16)”, “Circulo 360 (17)”, “Circulo 360 (18)”, “Circulo 360 (19)”, “Circulo 360 (20)”, “Circulo 360 (21)”, “Circulo 360 (22)”],
     video: null,
     links: [ { t: "Museo Estévez", u: "https://museoestevez.gob.ar/" } ],
     texto: [
