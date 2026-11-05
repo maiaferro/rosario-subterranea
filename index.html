@@ -687,6 +687,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   --muted: #55626c;
   --accent: #0d7766;
   --accent-ink: #f2fbf9;
+  --pin: #ea580c;
+  --pin-hi: #c2410c;
+  --pin-ink: #ffffff;
   --map-bg: #d5dbdf;
   --grid: rgba(18, 24, 29, .08);
   --river: #b9cdd8;
@@ -705,6 +708,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
     --muted: #8c98a3;
     --accent: #6cc4b0;
     --accent-ink: #0b1d19;
+    --pin: #ff8a2b;
+    --pin-hi: #ffb15c;
+    --pin-ink: #1c0f03;
     --map-bg: #141a20;
     --grid: rgba(230, 226, 216, .05);
     --river: #16232d;
@@ -721,6 +727,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
   --muted: #8c98a3;
   --accent: #6cc4b0;
   --accent-ink: #0b1d19;
+  --pin: #ff8a2b;
+  --pin-hi: #ffb15c;
+  --pin-ink: #1c0f03;
   --map-bg: #141a20;
   --grid: rgba(230, 226, 216, .05);
   --river: #16232d;
@@ -787,13 +796,14 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
 .pin {
   width: 30px; height: 30px; border-radius: 50%;
   display: grid; place-items: center;
-  background: var(--bg); color: var(--accent);
-  border: 2px solid var(--accent);
-  font: 500 12px/1 var(--mono);
+  background: var(--pin); color: var(--pin-ink);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px var(--pin), 0 2px 6px rgba(0,0,0,.35);
+  font: 600 12px/1 var(--mono);
   cursor: pointer;
   transition: transform .15s, background .15s, color .15s;
 }
-.pin.on { background: var(--accent); color: var(--accent-ink); transform: scale(1.25); }
+.pin.on { background: var(--pin-hi); transform: scale(1.3); box-shadow: 0 0 0 3px var(--pin), 0 0 14px 4px var(--pin), 0 2px 6px rgba(0,0,0,.35); }
 .pinwrap.adjusting .pin { border-style: dashed; cursor: grab; }
 
 .adjust { margin-top: 8px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
@@ -842,6 +852,16 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
 .label { position: absolute; left: 10px; bottom: 10px; z-index: 5; pointer-events: none; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #e6e2d8; background: rgba(11, 15, 19, .75); padding: 6px 8px; }
 .pano .pnlm-container { background: #0b0f13; }
 
+.shots { position: absolute; right: 10px; top: 10px; z-index: 5; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; max-width: calc(100% - 20px); }
+.shots button { min-width: 28px; height: 28px; padding: 0 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: 500 11px/1 var(--mono); cursor: pointer; }
+.shots button[aria-current="true"] { background: var(--pin); border-color: var(--pin); color: var(--pin-ink); }
+.shots button:hover { border-color: var(--pin); }
+.links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 4px; }
+.links a { display: inline-block; padding: 9px 12px; border: 1px solid var(--pin); color: var(--fg); text-decoration: none; font: 500 12px/1.2 var(--mono); letter-spacing: .04em; }
+.links a:hover, .links a:focus-visible { background: var(--pin); color: var(--pin-ink); }
+.links a { display: inline-flex; align-items: center; gap: 8px; }
+.links a::before { content: ""; width: 14px; height: 14px; flex: none; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20'/%3E%3C/svg%3E") center/contain no-repeat; }
+.links a::after { content: "↗"; }
 .copy { padding: 18px; display: flex; flex-direction: column; gap: 14px; max-width: 68ch; }
 .copy p { margin: 0; }
 .copy p.todo { color: var(--muted); font-style: italic; }
@@ -901,10 +921,11 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
       <div class="tag" id="aprox" hidden>Ubicación aproximada en el mapa</div>
     </div>
     <div class="media">
-      <div class="pano" id="panoWrap"><span class="label">360° · arrastrá para mirar</span><div id="pano" style="width:100%;height:100%"></div></div>
+      <div class="pano" id="panoWrap"><span class="label">360° · arrastrá para mirar</span><div id="pano" style="width:100%;height:100%"></div><div class="shots" id="shots" hidden></div></div>
       <div id="vidWrap"></div>
     </div>
     <div class="copy" id="copy"></div>
+    <div class="links" id="links" hidden></div>
     <div class="nav">
       <button type="button" class="prev" id="prev"></button>
       <button type="button" class="next" id="next"></button>
@@ -916,65 +937,12 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
 
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<script src="datos.js"></script>
 <script>
-/* ============================================================
-   DATOS DEL DOCUMENTAL — editá solo esta parte
-   foto360: ruta a una imagen equirectangular (2:1), por ejemplo "media/pasaje-pan-360.jpg"
-   video:   ruta a un .mp4 ("media/pasaje-pan.mp4") o un link de YouTube
-   Si dejás foto360 o video en null se muestra un ejemplo.
-   aprox: true marca que el punto en el mapa todavía no fue verificado.
-   ============================================================ */
-const PLACES = [
-  { id: "pasaje-pan-flamenco", corto: "Pan / Flamenco", nombre: "Pasaje Pan / Flamenco", direccion: "Córdoba 954",
-    lat: -32.9468, lng: -60.6357, aprox: true, foto360: null, video: null,
-    texto: ["Texto por escribir."], pendiente: true },
-  { id: "pasaje-pan-galeria", corto: "Pan / Galería de arte", nombre: "Pasaje Pan / Galería de arte", direccion: "Córdoba 954 - Subsuelo",
-    lat: -32.9468, lng: -60.6357, aprox: true, foto360: "prueba360.jpg", video: "https://www.youtube.com/watch?v=2P1wZD5R6cA",
-    texto: [
-      "El Pasaje Pan o también llamado Pam es el nombre de una pequeña y antigua galería de la ciudad de Rosario, Provincia de Santa Fe, Argentina. Fue inaugurado en 1899, lo que lo convierte en la galería más antigua de la ciudad"
-    ] },
-  { id: "plataforma-lavarden-1", corto: "Lavardén / 1º Subsuelo", nombre: "Plataforma Lavardén / 1º Subsuelo", direccion: "Mendoza 1085 - 1º Subsuelo",
-    lat: -32.9500, lng: -60.6371, aprox: true, foto360: null, video: null,
-    texto: [
-      "Edificio del Centro Cultural Provincial Lavardén, en Mendoza y Sarmiento. Antes alojó el hotel de la Federación Agraria Argentina.",
-      "Plataforma Lavardén se inauguró en 2012 y reúne unos cincuenta espacios para actividades culturales. Según fuentes públicas, el edificio tiene seis pisos y dos niveles subterráneos."
-    ] },
-  { id: "plataforma-lavarden-2", corto: "Lavardén / 2º Subsuelo", nombre: "Plataforma Lavardén / 2º Subsuelo", direccion: "Mendoza 1085 - 2º Subsuelo",
-    lat: -32.9500, lng: -60.6371, aprox: true, foto360: null, video: null,
-    texto: ["Texto por escribir."], pendiente: true },
-  { id: "museo-estevez", corto: "Museo Estévez", nombre: "Museo de Arte Decorativo Firma y Odilo Estévez", direccion: "Santa Fe 748",
-    lat: -32.9462, lng: -60.6339, aprox: true, foto360: null, video: null,
-    texto: [
-      "Inaugurado el 8 de julio de 1968 frente a la Plaza 25 de Mayo, guarda una colección de antigüedades donadas por familias de Rosario.",
-      "Completar: qué se recorre en el subsuelo."
-    ], pendiente: true },
-  { id: "teatro-el-circulo", corto: "Teatro El Círculo", nombre: "Teatro El Círculo", direccion: "Laprida 1223",
-    lat: -32.9509, lng: -60.6386, aprox: true, foto360: null, video: null,
-    texto: ["Texto por escribir."], pendiente: true },
-  { id: "san-lorenzo-1055", corto: "San Lorenzo 1055", nombre: "San Lorenzo 1055", direccion: "San Lorenzo 1055",
-    lat: -32.9455, lng: -60.6367, aprox: true, foto360: null, video: null,
-    texto: ["Texto por escribir."], pendiente: true },
-  { id: "monumento", corto: "El Monumento", nombre: "El Monumento", direccion: "Monumento Nacional a la Bandera",
-    lat: -32.9476, lng: -60.6298, aprox: true, foto360: null, video: null,
-    texto: ["Texto por escribir."], pendiente: true },
-  { id: "la-vigil", corto: "La Vigil", nombre: "La Vigil", direccion: "Alem 3078 · Gaboto 450",
-    lat: -32.9736, lng: -60.6575, aprox: true, foto360: null, video: null,
-    texto: [
-      "La Biblioteca Popular Constancio C. Vigil se creó en 1959 desde la asociación vecinal del barrio Tablada y Villa Manuelita.",
-      "Su proyecto fue atacado durante la última dictadura y hoy es Sitio de Memoria del Terrorismo de Estado. El recorrido guiado pasa por la biblioteca, el archivo, el observatorio, el teatro y los subsuelos."
-    ] },
-  { id: "ex-jefatura", corto: "Ex Jefatura", nombre: "Ex Jefatura de Policía", direccion: "Dorrego y San Lorenzo · Santa Fe 1950",
-    lat: -32.9458, lng: -60.6465, aprox: true, foto360: null, video: null,
-    texto: [
-      "Entre 1976 y 1979 funcionó en este edificio el Servicio de Informaciones de la policía provincial, uno de los centros clandestinos de detención de Rosario. Hoy es Espacio de Memoria.",
-      "Se preservaron el ex Servicio de Informaciones y el subsuelo de la ex Alcaidía de Mujeres. Existen además relatos sobre túneles que lo conectarían con el antiguo Comando del 2.º Cuerpo de Ejército, que investigadores estudian como parte de la memoria local."
-    ] }
-];
-/* ============== fin de los datos ============== */
-
 function start() {
   var $ = function (id) { return document.getElementById(id); };
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var curShot = 0;
   var cur = -1, viewer = null, markers = [], adjusting = false;
   var pad = function (n) { return n < 10 ? "0" + n : "" + n; };
 
@@ -1032,6 +1000,24 @@ function start() {
 
   /* 360 */
   var DEFAULT360 = window.DEFAULT_360;
+  function buildShots(p) {
+    var box = $("shots"), n = Math.max((p.fotos360 || []).length, p.cant360 || 0);
+    box.innerHTML = "";
+    box.hidden = n < 2;
+    for (var k = 0; k < n; k++) (function (k) {
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = k + 1; b.title = "Foto 360 " + (k + 1) + " de " + n;
+      b.addEventListener("click", function () { showShot(p, k); });
+      box.appendChild(b);
+    })(k);
+  }
+  function showShot(p, k) {
+    curShot = k;
+    Array.prototype.forEach.call($("shots").querySelectorAll("button"), function (b, q) {
+      if (q === k) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+    });
+    mountPano((p.fotos360 || [])[k]);
+  }
   function mountPano(src) {
     if (viewer) { try { viewer.destroy(); } catch (e) {} viewer = null; }
     var host = $("pano");
@@ -1053,7 +1039,7 @@ function start() {
     var box = document.createElement("div");
     if (!src) {
       box.className = "vid empty";
-      box.innerHTML = "<div>Video pendiente<br>Agregá el archivo en el campo <b>video</b> de este lugar</div>";
+      box.innerHTML = "<div>Video pendiente<br>Todavía no se cargó el video de este lugar</div>";
     } else {
       box.className = "vid";
       var yt = src.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
@@ -1089,7 +1075,15 @@ function start() {
       el.textContent = t;
       c.appendChild(el);
     });
-    mountPano(p.foto360);
+    buildShots(p);
+    showShot(p, 0);
+    var L2 = $("links");
+    L2.innerHTML = ""; L2.hidden = !(p.links && p.links.length);
+    (p.links || []).forEach(function (l) {
+      var a = document.createElement("a");
+      a.href = l.u; a.target = "_blank"; a.rel = "noopener"; a.textContent = l.t;
+      L2.appendChild(a);
+    });
     mountVideo(p.video, p.nombre);
     var prev = $("prev"), next = $("next");
     prev.disabled = i === 0; next.disabled = i === PLACES.length - 1;
