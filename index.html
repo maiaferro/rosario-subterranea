@@ -829,11 +829,11 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
   background: var(--surface); border: 1px solid var(--line);
   padding: 8px 12px; min-width: 0;
 }
-.index .n { font: 500 11px/1 var(--mono); color: var(--muted); letter-spacing: .06em; }
+.index .n { font: 600 11px/1 var(--mono); color: var(--pin); letter-spacing: .06em; }
 .index .t { font: 800 17px/1.1 var(--display); letter-spacing: .03em; text-transform: uppercase; }
-.index button:hover { border-color: var(--accent); }
-.index button[aria-current="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.index button[aria-current="true"] .n { color: var(--accent-ink); }
+.index button:hover { border-color: var(--pin); }
+.index button[aria-current="true"] { background: var(--pin); border-color: var(--pin); color: var(--pin-ink); }
+.index button[aria-current="true"] .n { color: var(--pin-ink); }
 
 /* Panel del lugar */
 .panel { background: var(--surface); border: 1px solid var(--line); min-width: 0; display: flex; flex-direction: column; }
@@ -1045,9 +1045,9 @@ function start() {
       var yt = src.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
       if (yt) {
         var f = document.createElement("iframe");
-        f.src = "https://www.youtube-nocookie.com/embed/" + yt[1];
-        f.title = "Video: " + name; f.allowFullscreen = true; f.loading = "lazy";
-        f.setAttribute("allow", "accelerometer; encrypted-media; picture-in-picture; fullscreen");
+        f.src = "https://www.youtube.com/embed/" + yt[1] + "?rel=0&modestbranding=1&playsinline=1";
+        f.title = "Video: " + name; f.allowFullscreen = true; f.loading = "lazy"; f.referrerPolicy = "strict-origin-when-cross-origin";
+        f.setAttribute("allow", "accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen; web-share");
         box.appendChild(f);
       } else {
         var v = document.createElement("video");
