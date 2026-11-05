@@ -28,7 +28,7 @@ const PLACES = [
   { id: "plataforma-lavarden", corto: "Plataforma Lavardén", nombre: "Plataforma Lavardén", direccion: "Mendoza 1085",
     lat: -32.9500, lng: -60.6371, aprox: true,
     cant360: 14, fotos360: ["Plataforma 360 (1).JPG", "Plataforma 360 (2).JPG", "Plataforma 360 (3).JPG", "Plataforma 360 (4).JPG", "Plataforma 360 (5).JPG", "Plataforma 360 (6).JPG", "Plataforma 360 (7).JPG", "Plataforma 360 (8).JPG", "Plataforma 360 (9).JPG", "Plataforma 360 (10).JPG", "Plataforma 360 (11).JPG", "Plataforma 360 (12).JPG", "Plataforma 360 (13).JPG", "Plataforma 360 (14).JPG"],
-    video: "https://youtu.be/FiQff4t1GcI",
+    video: "https://www.youtube.com/watch?v=FiQff4t1GcI",
     links: [ { t: "Plataforma Lavardén", u: "https://plataformalavarden.gob.ar/" }, { t: "EPCTV", u: "https://epctv.edu.ar/" } ],
     texto: [
       "El edificio de la Plataforma Lavardén cuenta con dos subsuelos integrados a su propuesta cultural y de formación.",
