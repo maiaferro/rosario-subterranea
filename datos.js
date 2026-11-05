@@ -17,7 +17,7 @@
 const PLACES = [
   { id: "barnes-opera", corto: "Barnes / Ópera", nombre: "Museo de Arte Sacro Barnes / Museo de la Ópera", direccion: "Laprida 1223",
     lat: -32.9509, lng: -60.6386, aprox: true,
-    cant360: 24, fotos360: [],
+    cant360: 22, fotos360: ["Circulo 360 (1).JPG", "Circulo 360 (2).JPG", "Circulo 360 (3).JPG", "Circulo 360 (4).JPG", "Circulo 360 (5).JPG", "Circulo 360 (6).JPG", "Circulo 360 (7).JPG", "Circulo 360 (8).JPG", "Circulo 360 (9).JPG", "Circulo 360 (10).JPG", "Circulo 360 (11).JPG", "Circulo 360 (12).JPG", "Circulo 360 (13).JPG", "Circulo 360 (14).JPG", "Circulo 360 (15).JPG", "Circulo 360 (16).JPG", "Circulo 360 (17).JPG", "Circulo 360 (18).JPG", "Circulo 360 (19).JPG", "Circulo 360 (20).JPG", "Circulo 360 (21).JPG", "Circulo 360 (22).JPG"],
     video: "https://youtu.be/3Tf1t6dQckk",
     links: [ { t: "Teatro El Círculo", u: "https://www.teatroelcirculo.com/" } ],
     texto: [
@@ -27,7 +27,7 @@ const PLACES = [
     ] },
   { id: "plataforma-lavarden", corto: "Plataforma Lavardén", nombre: "Plataforma Lavardén", direccion: "Mendoza 1085",
     lat: -32.9500, lng: -60.6371, aprox: true,
-    cant360: 16, fotos360: [],
+    cant360: 14, fotos360: ["Plataforma 360 (1).JPG", "Plataforma 360 (2).JPG", "Plataforma 360 (3).JPG", "Plataforma 360 (4).JPG", "Plataforma 360 (5).JPG", "Plataforma 360 (6).JPG", "Plataforma 360 (7).JPG", "Plataforma 360 (8).JPG", "Plataforma 360 (9).JPG", "Plataforma 360 (10).JPG", "Plataforma 360 (11).JPG", "Plataforma 360 (12).JPG", "Plataforma 360 (13).JPG", "Plataforma 360 (14).JPG"],
     video: "https://youtu.be/FiQff4t1GcI",
     links: [ { t: "Plataforma Lavardén", u: "https://plataformalavarden.gob.ar/" }, { t: "EPCTV", u: "https://epctv.edu.ar/" } ],
     texto: [
@@ -41,7 +41,7 @@ const PLACES = [
     ] },
   { id: "pasaje-pan", corto: "Pasaje Pan", nombre: "Galería Pasaje Pan", direccion: "Córdoba 924 · Santa Fe 955",
     lat: -32.9468, lng: -60.6357, aprox: true,
-    cant360: 8, fotos360: [“Plataforma 360 (1)”, “Plataforma 360 (2)”, “Plataforma 360 (3)”, “Plataforma 360 (4)”, “Plataforma 360 (5)”, “Plataforma 360 (6)”, “Plataforma 360 (7)”, “Plataforma 360 (8)”, “Plataforma 360 (9)”, “Plataforma 360 (10)”, “Plataforma 360 (11)”, “Plataforma 360 (12)”, “Plataforma 360 (13)”, “Plataforma 360 (14)”],
+    cant360: 8, fotos360: ["prueba360.jpg"],
     video: null,
     links: [ { t: "Instagram del Pasaje Pan", u: "https://www.instagram.com/pasajepanros/" } ],
     texto: [
@@ -49,7 +49,7 @@ const PLACES = [
     ] },
   { id: "museo-estevez", corto: "Museo Estévez", nombre: "Museo de Arte Decorativo Firma y Odilo Estévez", direccion: "Santa Fe 748",
     lat: -32.9462, lng: -60.6339, aprox: true,
-    cant360: 1, fotos360: [“Circulo 360 (1)”, ” Circulo 360 (2)”, “Circulo 360 (3)”, “Circulo 360 (4)”, “Circulo 360 (5)”, “Circulo 360 (6)”, “Circulo 360 (7)”, “Circulo 360 (8)”, “Circulo 360 (9)”, “Circulo 360 (10)”, “Circulo 360 (11)”, “Circulo 360 (12)”, “Circulo 360 (13)”, “Circulo 360 (14)”, “Circulo 360 (15)”, “Circulo 360 (16)”, “Circulo 360 (17)”, “Circulo 360 (18)”, “Circulo 360 (19)”, “Circulo 360 (20)”, “Circulo 360 (21)”, “Circulo 360 (22)”],
+    cant360: 1, fotos360: [],
     video: null,
     links: [ { t: "Museo Estévez", u: "https://museoestevez.gob.ar/" } ],
     texto: [
