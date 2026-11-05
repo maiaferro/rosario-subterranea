@@ -1025,7 +1025,7 @@ function start() {
     if (typeof pannellum === "undefined") { host.innerHTML = "<div class=\"vid empty\" style=\"height:100%\">No se pudo cargar el visor 360.</div>"; return; }
     try {
       viewer = pannellum.viewer("pano", {
-        type: "equirectangular", panorama: src || DEFAULT360,
+        type: "equirectangular", panorama: src ? (/^(data:|https?:)/.test(src) ? src : encodeURI(src)) : DEFAULT360,
         autoLoad: true, showControls: true, compass: false, hfov: 105, minHfov: 50, maxHfov: 120,
         autoRotate: reduce ? 0 : -2, autoRotateInactivityDelay: 4000
       });
