@@ -1055,8 +1055,14 @@ function start() {
         a.setAttribute("aria-label", "Ver el video de " + name + " en 360 en YouTube (se abre en otra pestaña)");
         var im = document.createElement("img");
         im.alt = ""; im.loading = "lazy";
-        im.src = "https://img.youtube.com/vi/" + yt[1] + "/maxresdefault.jpg";
-        im.onerror = function () { im.onerror = null; im.src = "https://img.youtube.com/vi/" + yt[1] + "/hqdefault.jpg"; };
+        var sizes = ["maxresdefault", "sddefault", "hqdefault", "mqdefault"], si = 0;
+        function nextThumb() {
+          if (si >= sizes.length) { im.style.display = "none"; return; }
+          im.src = "https://img.youtube.com/vi/" + yt[1] + "/" + sizes[si++] + ".jpg";
+        }
+        im.onload = function () { if (im.naturalWidth <= 120) nextThumb(); };
+        im.onerror = nextThumb;
+        nextThumb();
         var bt = document.createElement("span");
         bt.className = "postbtn"; bt.textContent = "▶ Ver el video en 360 en YouTube ↗";
         a.appendChild(im); a.appendChild(bt);
