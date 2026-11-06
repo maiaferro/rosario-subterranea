@@ -41,7 +41,7 @@ const PLACES = [
     ] },
   { id: "pasaje-pan", corto: "Pasaje Pan", nombre: "Galería Pasaje Pan", direccion: "Córdoba 924 · Santa Fe 955",
     lat: -32.9468, lng: -60.6357, aprox: true,
-    cant360: 8, fotos360: ["prueba360.jpg"],
+    cant360: 8, fotos360: [],
     video: null,
     links: [ { t: "Instagram del Pasaje Pan", u: "https://www.instagram.com/pasajepanros/" } ],
     texto: [
