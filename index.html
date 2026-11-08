@@ -865,10 +865,19 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
 .label { position: absolute; left: 10px; bottom: 10px; z-index: 5; pointer-events: none; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #e6e2d8; background: rgba(11, 15, 19, .75); padding: 6px 8px; }
 .pano .pnlm-container { background: #0b0f13; }
 
-.shots { position: absolute; right: 10px; top: 10px; z-index: 5; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; max-width: calc(100% - 20px); }
-.shots button { min-width: 28px; height: 28px; padding: 0 6px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); font: 500 11px/1 var(--mono); cursor: pointer; }
-.shots button[aria-current="true"] { background: var(--pin); border-color: var(--pin); color: var(--pin-ink); }
-.shots button:hover { border-color: var(--pin); }
+.shots { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.shots button {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 30px; height: 64px; padding: 0; border: 0; cursor: pointer;
+  background: rgba(11, 15, 19, .5); color: #f2f0ea;
+  font: 400 30px/1 var(--mono); display: grid; place-items: center;
+  pointer-events: auto; -webkit-tap-highlight-color: transparent;
+}
+.shots .shot-prev { left: 0; border-radius: 0 6px 6px 0; }
+.shots .shot-next { right: 0; border-radius: 6px 0 0 6px; }
+.shots button:hover, .shots button:focus-visible { background: var(--pin); color: var(--pin-ink); }
+.shots .shot-count { position: absolute; right: 10px; bottom: 10px; font: 500 11px/1 var(--mono); letter-spacing: .1em; color: #e6e2d8; background: rgba(11, 15, 19, .75); padding: 6px 8px; }
+@media (hover: none) { .shots button { background: rgba(11, 15, 19, .35); width: 26px; height: 56px; font-size: 26px; } }
 .links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 4px; }
 .links a { display: inline-block; padding: 9px 12px; border: 1px solid var(--pin); color: var(--fg); text-decoration: none; font: 500 12px/1.2 var(--mono); letter-spacing: .04em; }
 .links a:hover, .links a:focus-visible { background: var(--pin); color: var(--pin-ink); }
@@ -934,7 +943,7 @@ path.river { fill: var(--river); fill-opacity: 1; stroke: none; }
       <div class="tag" id="aprox" hidden>Ubicación aproximada en el mapa</div>
     </div>
     <div class="media">
-      <div class="pano" id="panoWrap"><span class="label">360° · arrastrá para mirar</span><div id="pano" style="width:100%;height:100%"></div><div class="shots" id="shots" hidden></div></div>
+      <div class="pano" id="panoWrap"><span class="label">360° · arrastrá para mirar</span><div id="pano" style="width:100%;height:100%"></div><div class="shots" id="shots" hidden><button type="button" class="shot-prev" id="shotPrev" aria-label="Foto 360 anterior">‹</button><button type="button" class="shot-next" id="shotNext" aria-label="Foto 360 siguiente">›</button><span class="shot-count" id="shotCount"></span></div></div>
       <div id="vidWrap"></div>
     </div>
     <div class="copy" id="copy"></div>
@@ -1017,22 +1026,17 @@ function start() {
 
   /* 360 */
   var DEFAULT360 = window.DEFAULT_360;
+  var shotN = 0;
   function buildShots(p) {
     var box = $("shots"), n = Math.max((p.fotos360 || []).length, p.cant360 || 0);
-    box.innerHTML = "";
+    shotN = n;
     box.hidden = n < 2;
-    for (var k = 0; k < n; k++) (function (k) {
-      var b = document.createElement("button");
-      b.type = "button"; b.textContent = k + 1; b.title = "Foto 360 " + (k + 1) + " de " + n;
-      b.addEventListener("click", function () { showShot(p, k); });
-      box.appendChild(b);
-    })(k);
+    $("shotPrev").onclick = function () { showShot(p, (curShot - 1 + n) % n); };
+    $("shotNext").onclick = function () { showShot(p, (curShot + 1) % n); };
   }
   function showShot(p, k) {
     curShot = k;
-    Array.prototype.forEach.call($("shots").querySelectorAll("button"), function (b, q) {
-      if (q === k) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
-    });
+    $("shotCount").textContent = (k + 1) + " / " + shotN;
     mountPano((p.fotos360 || [])[k]);
   }
   function mountPano(src) {
