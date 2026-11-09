@@ -681,6 +681,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <style>
 /* Layout: mapa a la izquierda, panel del lugar a la derecha (foto 360, video, texto); en celular se apila. */
 :root {
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+:root[data-theme="light"] {
   --bg: #ecdfcd;
   --surface: #f5ecdf;
   --surface-2: #e0cfb8;
@@ -696,29 +701,25 @@ svg.leaflet-image-layer.leaflet-interactive path {
   --grid: rgba(42, 10, 13, .08);
   --river: #c7a58f;
   --tile-filter: sepia(.55) hue-rotate(-18deg) saturate(.9) contrast(.95);
-  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
-  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #140002;
-    --surface: #1d0508;
-    --surface-2: #2a0b10;
-    --line: #4a1a1e;
-    --fg: #e6d5b8;
-    --muted: #a58d73;
-    --accent: #d9775f;
-    --accent-ink: #1a0405;
-    --pin: #f0372b;
-    --pin-hi: #ff7a63;
-    --pin-ink: #ffffff;
-    --map-bg: #1a0407;
-    --grid: rgba(230, 213, 184, .05);
-    --river: #3a1015;
-    --tile-filter: grayscale(1) invert(1) contrast(.6) brightness(.7) sepia(1) hue-rotate(-35deg) saturate(2.4);
-    color-scheme: dark;
-  }
+/* Tema por defecto: rojo oscuro, sin depender del modo del sistema. La paleta clara solo se usa con data-theme="light". */
+:root:not([data-theme="light"]) {
+  --bg: #140002;
+  --surface: #1d0508;
+  --surface-2: #2a0b10;
+  --line: #4a1a1e;
+  --fg: #e6d5b8;
+  --muted: #a58d73;
+  --accent: #d9775f;
+  --accent-ink: #1a0405;
+  --pin: #f0372b;
+  --pin-hi: #ff7a63;
+  --pin-ink: #ffffff;
+  --map-bg: #1a0407;
+  --grid: rgba(230, 213, 184, .05);
+  --river: #3a1015;
+  --tile-filter: grayscale(1) invert(1) contrast(.6) brightness(.7) sepia(1) hue-rotate(-35deg) saturate(2.4);
+  color-scheme: dark;
 }
 :root[data-theme="dark"] {
   --bg: #140002;
