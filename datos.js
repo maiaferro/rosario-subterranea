@@ -16,7 +16,7 @@
    ===================================================================== */
 const PLACES = [
   { id: "barnes-opera", corto: "Barnes / Ópera", nombre: "Museo de Arte Sacro Barnes / Museo de la Ópera", direccion: "Laprida 1223",
-    lat: -32.952373606228456, -60.63535480322665,
+    lat: -32.952373606228456, lng: -60.63535480322665, aprox: false,
     cant360: 22, fotos360: ["Circulo 360 (1).JPG", "Circulo 360 (2).JPG", "Circulo 360 (3).JPG", "Circulo 360 (4).JPG", "Circulo 360 (5).JPG", "Circulo 360 (6).JPG", "Circulo 360 (7).JPG", "Circulo 360 (8).JPG", "Circulo 360 (9).JPG", "Circulo 360 (10).JPG", "Circulo 360 (11).JPG", "Circulo 360 (12).JPG", "Circulo 360 (13).JPG", "Circulo 360 (14).JPG", "Circulo 360 (15).JPG", "Circulo 360 (16).JPG", "Circulo 360 (17).JPG", "Circulo 360 (18).JPG", "Circulo 360 (19).JPG", "Circulo 360 (20).JPG", "Circulo 360 (21).JPG", "Circulo 360 (22).JPG"],
     video: "https://youtu.be/3Tf1t6dQckk",
     links: [ { t: "Teatro El Círculo", u: "https://youtu.be/cTVZh6ZjjA8" } ],
@@ -26,7 +26,7 @@ const PLACES = [
       "El Museo de la Ópera se desarrolla en dos niveles subterráneos de los cimientos centenarios del teatro, y se conecta con el Museo Barnes a través de un puente de hierro curvo diseñado por el arquitecto Drazen Juraga. Se exhiben vestuarios de lujo, bocetos, objetos artísticos y fragmentos de escenografías de producciones de los últimos 25 años. El espacio está climatizado, se musicaliza con arias de ópera y cada pieza cuenta con una placa e información complementaria mediante código QR."
     ] },
   { id: "plataforma-lavarden", corto: "Plataforma Lavardén", nombre: "Plataforma Lavardén", direccion: "Mendoza 1085",
-    lat: -32.9500, lng: -60.6371, aprox: true,
+    lat: -32.95148280693296, lng: -60.63929408973491, aprox: false,
     cant360: 14, fotos360: ["Plataforma 360 (1).JPG", "Plataforma 360 (2).JPG", "Plataforma 360 (3).JPG", "Plataforma 360 (4).JPG", "Plataforma 360 (5).JPG", "Plataforma 360 (6).JPG", "Plataforma 360 (7).JPG", "Plataforma 360 (8).JPG", "Plataforma 360 (9).JPG", "Plataforma 360 (10).JPG", "Plataforma 360 (11).JPG", "Plataforma 360 (12).JPG", "Plataforma 360 (13).JPG", "Plataforma 360 (14).JPG"],
     video: "https://www.youtube.com/watch?v=FiQff4t1GcI",
     links: [ { t: "Plataforma Lavardén", u: "https://plataformalavarden.gob.ar/" }, { t: "EPCTV", u: "https://epctv.edu.ar/" } ],
@@ -40,7 +40,7 @@ const PLACES = [
       "Sin embargo, los altos costos de infraestructura, los requerimientos de insonorización extrema y las complejidades de ventilación y humedad naturales de un segundo nivel subterráneo hicieron que la obra no prosperara. Ante la falta de presupuesto y la necesidad logística del propio centro cultural, que genera decenas de obras de teatro, muestras y recitales en los pisos superiores, el segundo subsuelo volvió a su rol histórico: depósito de resguardo técnico, escenografías y acopio de materiales de la propia Plataforma."
     ] },
   { id: "pasaje-pan", corto: "Pasaje Pan", nombre: "Galería Pasaje Pan", direccion: "Córdoba 924 · Santa Fe 955",
-    lat: -32.9468, lng: -60.6357, aprox: true,
+    lat: -32.94661660905655, lng: -60.63600930322625, aprox: false,
     cant360: 8, fotos360: [],
     video: null,
     links: [ { t: "Instagram del Pasaje Pan", u: "https://www.instagram.com/pasajepanros/" } ],
@@ -48,7 +48,7 @@ const PLACES = [
       "Inaugurado en 1899, el Pasaje Pan es la galería cubierta más antigua de Rosario. Lleva el apellido de Andrés Pan, un comerciante gallego que tenía un almacén en la planta baja y vivía en los pisos de arriba. Cuenta la leyenda que su fantasma todavía recorre los pasillos. Se levantó en dos etapas: la primera, a fines del siglo XIX, con salida por calle Santa Fe, y la segunda, terminada en 1914, que lo abrió también sobre Córdoba. Debajo de ese recorrido de comercios, talleres y estudios, el edificio guarda dos subsuelos. En uno funciona hoy una galería de arte, con muestras y presentaciones a metros de la peatonal. En el otro, una escuela de flamenco donde se enseña y se practica ese baile."
     ] },
   { id: "museo-estevez", corto: "Museo Estévez", nombre: "Museo de Arte Decorativo Firma y Odilo Estévez", direccion: "Santa Fe 748",
-    lat: -32.9462, lng: -60.6339, aprox: true,
+    lat: -32.946499522412715, lng: -60.633049560898456, aprox: false,
     cant360: 1, fotos360: [],
     video: null,
     links: [ { t: "Museo Estévez", u: "https://museoestevez.gob.ar/" } ],
@@ -56,7 +56,7 @@ const PLACES = [
       "Frente a la Plaza 25 de Mayo, el Museo Estévez ocupa una casona de fachada de mármol de Carrara que Odilo Estévez y Firma Mayor compraron a comienzos de la década de 1920 y que ella legó a la ciudad: el museo abrió en 1968. Pero lo más antiguo de la casa está debajo. En 2021, mientras una constructora reparaba los desagües pluviales y levantaba el piso del hall central, aparecieron fragmentos de cerámica y las obras se detuvieron. Un radar exploró el terreno y, en octubre, un equipo de la Universidad Nacional de Rosario empezó a excavar bajo la dirección del arqueólogo Fernando Oliva. Apenas bajo el piso, en lo que fue el patio de la casa de la familia Ibarlucea, anterior a los Estévez, salieron dos aljibes, desagües de ladrillo, el brocal de un pozo, el poste de una habitación colonial y fragmentos de cerámica chaná incrustados en la mezcla de los ladrillos. Según los arqueólogos, esos restos datan de entre 1790 y principios del siglo XIX: son parte de la Rosario más antigua. Desde la reapertura del museo, en mayo de 2023, un piso transparente permite caminar sobre el yacimiento."
     ] },
   { id: "la-vigil", corto: "La Vigil", nombre: "La Vigil", direccion: "Gaboto 450",
-    lat: -32.9736, lng: -60.6575, aprox: true,
+    lat: -32.97447587639427, lng: -60.63523085904439, aprox: false,
     cant360: 5, fotos360: [],
     video: null,
     links: [ { t: "Recorridos guiados", u: "https://bibliotecavigil.org.ar/inicio/recorridos-guiados-3/" } ],
@@ -64,7 +64,7 @@ const PLACES = [
       "El subsuelo de la Biblioteca Popular Constancio C. Vigil es uno de los espacios más emblemáticos y cargados de historia de Rosario. Concebido en los años sesenta como un polo cultural y educativo de escala monumental, este laberinto subterráneo albergó desde salas de lectura, exposiciones y talleres hasta un observatorio astronómico y una imprenta propia. Tras la intervención dictatorial de 1977, el lugar sufrió el desguace, la censura y el saqueo de su valioso patrimonio; sin embargo, con la recuperación de la institución por parte de los vecinos y socios, sus entrañas subterráneas renacieron como un símbolo vivo de resistencia colectiva y memoria histórica en el corazón de barrio Tablada. Actualmente, este espacio puede recorrerse a través de visitas guiadas organizadas por la institución, propuestas pedagógicas y circuitos de memoria que invitan a redescubrir su arquitectura, su mística y el inmenso valor de su lucha comunitaria."
     ] },
   { id: "monumento", corto: "El Monumento", nombre: "El Monumento a la Bandera", direccion: "Santa Fe 581",
-    lat: -32.9476, lng: -60.6298, aprox: true,
+    lat: -32.94772406552078, lng: -60.63038247994964, aprox: false,
     cant360: 6, fotos360: [],
     video: null,
     links: [ { t: "Monumento a la Bandera", u: "https://www.monumentoalabandera.gob.ar/" } ],
@@ -73,7 +73,7 @@ const PLACES = [
       "Actualmente, este nivel subterráneo forma parte del recorrido turístico e institucional, permitiendo a los visitantes acceder a través de visitas guiadas y espacios expositivos que conectan la imponente estructura exterior con la memoria histórica resguardada en sus entrañas."
     ] },
   { id: "ex-jefatura", corto: "Ex Jefatura", nombre: "Ex Jefatura de Policía", direccion: "San Lorenzo 1949",
-    lat: -32.9458, lng: -60.6465, aprox: true,
+    lat: -32.94165428290424, lng: -60.64887835745466, aprox: false,
     cant360: 7, fotos360: [],
     video: null,
     links: [
@@ -85,7 +85,7 @@ const PLACES = [
       "Actualmente, el subsuelo puede visitarse a través de recorridos guiados y circuitos de memoria institucionales, concebidos como un ejercicio pedagógico y de profunda reflexión para mantener vivo el reclamo de verdad, justicia y memoria en la sociedad."
     ] },
   { id: "la-sub-sede", corto: "La Sub Sede", nombre: "La Sub Sede", direccion: "Entre Ríos 579",
-    lat: -32.9456, lng: -60.6395, aprox: true,
+    lat: -32.94294914536971, lng: -60.64029529496782, aprox: false,
     cant360: 5, fotos360: [],
     video: null,
     links: [ { t: "Cultural de Abajo", u: "https://www.teatrosatir.ar/salas/cultural-de-abajo/" } ],
