@@ -9,8 +9,8 @@
    - fotos360: lista con los nombres de las fotos 360 (JPG 2:1) como están
      en GitHub, entre comillas y separados por coma.
      Ej: fotos360: ["barnes-01.jpg", "barnes-02.jpg"],
-   - cant360: cuántas fotos 360 va a tener el lugar. Los botones "Foto 1, 2, 3…"
-     aparecen según este número; las que todavía no cargaste muestran una foto de prueba.
+   - cant360: cuántas fotos 360 va a tener el lugar. Las flechas ‹ › y el contador
+     (ej. 2 / 5) aparecen según este número; las que todavía no cargaste muestran una foto de prueba.
    - video: link de YouTube o nombre de un .mp4. Si no hay, dejá null (sin comillas).
    - links: botones con enlaces. Formato: { t: "Texto del botón", u: "https://..." }
    ===================================================================== */
