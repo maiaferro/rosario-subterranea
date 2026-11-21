@@ -19,7 +19,7 @@ const PLACES = [
     lat: -32.952373606228456, lng: -60.63535480322665, aprox: false,
     cant360: 20, fotos360: ["Circulo 360 (1).JPG", "Circulo 360 (2).JPG", "Circulo 360 (3).JPG", "Circulo 360 (4).JPG", "Circulo 360 (5).JPG", "Circulo 360 (6).JPG", "Circulo 360 (7).JPG", "Circulo 360 (8).JPG", "Circulo 360 (9).JPG", "Circulo 360 (10).JPG", "Circulo 360 (11).JPG", "Circulo 360 (12).JPG", "Circulo 360 (13).JPG", "Circulo 360 (14).JPG", "Circulo 360 (15).JPG", "Circulo 360 (16).JPG", "Circulo 360 (17).JPG", "Circulo 360 (18).JPG", "Circulo 360 (19).JPG", "Circulo 360 (20).JPG"],
     video: "https://youtu.be/QRnNfFERUXA",
-    links: [ { t: "Teatro El Círculo", u: "https://youtu.be/cTVZh6ZjjA8" } ],
+    links: [ { t: "Teatro El Círculo", u: "https://youtu.be/FiQff4t1GcI" } ],
     texto: [
       "El Teatro El Círculo de Rosario alberga en sus subsuelos, conocidos popularmente como las «catacumbas», dos importantes espacios culturales conectados entre sí.",
       "El Museo de Arte Sacro Eduardo Barnes se encuentra debajo de la platea, conectado acústicamente a la sala principal mediante respiraderos. El escultor rosarino Eduardo Amancio Barnes (1901-1977) utilizó este espacio como taller desde 1957 para crear y guardar su obra. En 1978, Emilia Barnes donó la colección. Actualmente se exhiben más de 100 piezas originales en yeso, piedra, madera y bronce de temática religiosa, además de moldes originales del artista y la vieja caldera histórica del edificio.",
