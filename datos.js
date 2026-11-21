@@ -18,7 +18,7 @@ const PLACES = [
   { id: "barnes-opera", corto: "Barnes / Ópera", nombre: "Museo de Arte Sacro Barnes / Museo de la Ópera", direccion: "Laprida 1223",
     lat: -32.952373606228456, lng: -60.63535480322665, aprox: false,
     cant360: 22, fotos360: ["Circulo 360 (1).JPG", "Circulo 360 (2).JPG", "Circulo 360 (3).JPG", "Circulo 360 (4).JPG", "Circulo 360 (5).JPG", "Circulo 360 (6).JPG", "Circulo 360 (7).JPG", "Circulo 360 (8).JPG", "Circulo 360 (9).JPG", "Circulo 360 (10).JPG", "Circulo 360 (11).JPG", "Circulo 360 (12).JPG", "Circulo 360 (13).JPG", "Circulo 360 (14).JPG", "Circulo 360 (15).JPG", "Circulo 360 (16).JPG", "Circulo 360 (17).JPG", "Circulo 360 (18).JPG", "Circulo 360 (19).JPG", "Circulo 360 (20).JPG", "Circulo 360 (21).JPG", "Circulo 360 (22).JPG"],
-    video: "https://youtu.be/3Tf1t6dQckk",
+    video: "https://youtu.be/QRnNfFERUXA",
     links: [ { t: "Teatro El Círculo", u: "https://youtu.be/cTVZh6ZjjA8" } ],
     texto: [
       "El Teatro El Círculo de Rosario alberga en sus subsuelos, conocidos popularmente como las «catacumbas», dos importantes espacios culturales conectados entre sí.",
